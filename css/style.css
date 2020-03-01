@@ -1,0 +1,23 @@
+#imagesSection{
+    display: inline-block;
+    float: right;
+    width: 70%;
+    height: 150px;
+}
+#result{
+    font-family: cursive;
+    font-size: x-large;
+    background-color: coral;
+}
+#title{
+    text-align: center;
+    font-size: 80px;
+    font-family: monospace;
+    color: blanchedalmond;
+    background-color: cadetblue;
+}
+#par{
+    font-size: 62px;
+    color: crimson;
+    background-color: darkgray;
+}
