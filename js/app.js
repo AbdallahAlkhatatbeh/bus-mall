@@ -93,10 +93,16 @@ function handleClickOnIMG(event) {
         rightIMG.clicks++;
       }
       totalClicks++;
+      
       leftIMG.views++;
       middleIMG.views++;
       rightIMG.views++;
+      for (let i = 0; i < Images.all.length; i++) {
+        clicksArray[i] = Images.all[i].clicks; 
+      
+    }
       render();
+      // render2();
     }
   }  else {
     console.log('more than 25 clicks');
@@ -105,19 +111,84 @@ function handleClickOnIMG(event) {
   }
 }
 
+var clicksArray = []; 
 
 function render2() {
-    var ulE1 = document.getElementById('summary');
-    for (var i =0; i<Images.all.length ; i++) {
-      var liE1 = document.createElement('li');
-      liE1.textContent = `${Images.all[i].name} has ${Images.all[i].clicks} clicks and ${Images.all[i].views} views`;
-      ulE1.appendChild(liE1);
+//     var ulE1 = document.getElementById('summary');
+//     // var x=[];
+//     for (var i =0; i<Images.all.length ; i++) {
+//       var liE1 = document.createElement('li');
+//       liE1.textContent = `${Images.all[i].name} has ${Images.all[i].clicks} clicks and ${Images.all[i].views} views`;
+// // var x =Images.all[i].clicks;
+//       ulE1.appendChild(liE1);
+//     }
+  
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels:names,
+        datasets: [{
+            label: '# of Votes',
+            
+            
+            data:clicksArray,
+           
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                // 'rgba(54, 162, 235, 0.2)',
+                // 'rgba(255, 206, 86, 0.2)',
+                // 'rgba(75, 192, 192, 0.2)',
+                // 'rgba(153, 102, 255, 0.2)',
+                // 'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                // 'rgba(255, 99, 132, 1)',
+                // 'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                // 'rgba(75, 192, 192, 1)',
+                // 'rgba(153, 102, 255, 1)',
+                // 'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 15
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
     }
-  }
+});
+  
+
+
+
+
+}
 
   function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
   
-  
+
+  // const findDuplicates = (arr) => {
+  //   let sorted_arr = arr.slice().sort(); // You can define the comparing function here. 
+  //   // JS by default uses a crappy string compare.
+  //   // (we use slice to clone the array so the
+  //   // original array won't be modified)
+  //   let results = [];
+  //   for (let i = 0; i < sorted_arr.length - 1; i++) {
+  //     if (sorted_arr[i + 1] == sorted_arr[i]) {
+  //       results.push(sorted_arr[i]);
+  //     }
+  //   }
+  //   return results;
+  // }
+
+
+ 
 

@@ -1,13 +1,17 @@
 #imagesSection{
     display: inline-block;
-    float: right;
+  padding: 20px;
     width: 70%;
     height: 150px;
+    max-width: 30px;
+    margin: 45px;
 }
 #result{
     font-family: cursive;
     font-size: x-large;
     background-color: coral;
+    text-align: center;
+
 }
 #title{
     text-align: center;
@@ -20,4 +24,9 @@
     font-size: 62px;
     color: crimson;
     background-color: darkgray;
+    margin: 100px;
+}
+canvas{
+    margin: 20px;
+    float: left;
 }
