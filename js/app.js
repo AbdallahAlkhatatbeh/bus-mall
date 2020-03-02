@@ -50,6 +50,15 @@ function render () {
   rightIMG =Images.all[randomNumber(0,Images.all.length-1)];
   console.log(rightIMG);
 
+
+
+
+  while( (leftIMG === middleIMG) || (leftIMG === rightIMG) || (middleIMG === rightIMG)){
+    render(); 
+  }
+
+
+
 console.log('left',leftIMG)
   leftImage.setAttribute('src',leftIMG.imagePath);
   leftImage.setAttribute('alt',leftIMG.name);
