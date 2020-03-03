@@ -59,7 +59,34 @@ function Images(name) {
   for(var i =0; i<names.length; i++) {
     new Images(names[i]);
   }
-
+var preivousImages=[];
+while (preivousImages.includes(leftIMG)) {
+  leftIMG=  Images.all[randomNumber(0,  Images.all.length-1)];
+  if( (leftIMG === middleIMG) || (leftIMG === rightIMG) || (middleIMG === rightIMG)){
+    render(); 
+  }
+  
+}
+while (preivousImages.includes(middleIMG)) {
+  middleIMG=  Images.all[randomNumber(0,  Images.all.length-1)];
+if( (leftIMG === middleIMG) || (leftIMG === rightIMG) || (middleIMG === rightIMG)){
+    render(); 
+  }
+  
+}
+while (preivousImages.includes(rightIMG)) {
+  rightIMG=  Images.all[randomNumber(0,  Images.all.length-1)];
+if( (leftIMG === middleIMG) || (leftIMG === rightIMG) || (middleIMG === rightIMG)){
+    render(); 
+  }
+  
+}
+preivousImages.push(leftIMG);
+preivousImages.push(middleIMG);
+preivousImages.push(rightIMG);
+while (preivousImages.length >3) {
+  preivousImages.shift();
+}
   var leftIMG, middleIMG, rightIMG;
 function render () {
    leftIMG = Images.all[randomNumber(0,Images.all.length-1)];
