@@ -37,6 +37,25 @@ function Images(name) {
   }
   Images.all =[];
 
+  function updateCV() {
+    var CVString = JSON.stringify(Images.all);
+    localStorage.setItem('Clicks&views', CVString);
+  }
+
+
+  function getCV() {
+    var CVString = localStorage.getItem('Clicks&views');
+    
+    if(CVString) {
+      Images.all = JSON.parse(CVString);
+    
+      render2();
+  
+    }
+  }
+  // getCV();
+
+
   for(var i =0; i<names.length; i++) {
     new Images(names[i]);
   }
@@ -81,6 +100,7 @@ render();
 imageSection.addEventListener('click',handleClickOnIMG);
 var totalClicks =0;
 function handleClickOnIMG(event) {
+  event.preventDefault();
   if(totalClicks <25 ) {
 
      
@@ -101,6 +121,11 @@ function handleClickOnIMG(event) {
         clicksArray[i] = Images.all[i].clicks; 
       
     }
+    for (let i = 0; i < Images.all.length; i++) {
+      viewsArray[i] = Images.all[i].views; 
+    
+  }
+  updateCV();
       render();
       // render2();
     }
@@ -112,7 +137,7 @@ function handleClickOnIMG(event) {
 }
 
 var clicksArray = []; 
-
+var viewsArray = [];
 function render2() {
 //     var ulE1 = document.getElementById('summary');
 //     // var x=[];
@@ -151,7 +176,30 @@ var myChart = new Chart(ctx, {
                 // 'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 15
-        }]
+        },{
+          label: '# of Votes',
+          
+          
+          data:viewsArray,
+         
+          backgroundColor: [
+              // 'rgba(255, 99, 88, 0.2)',
+              // 'rgba(54, 162, 235, 0.2)',
+              // 'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)'
+              // 'rgba(153, 102, 255, 0.2)',
+              // 'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+              // 'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)'
+              // 'rgba(255, 206, 86, 1)',
+              // 'rgba(75, 192, 192, 1)',
+              // 'rgba(153, 102, 255, 1)',
+              // 'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 15
+      }]
     },
     options: {
         scales: {
@@ -173,7 +221,7 @@ var myChart = new Chart(ctx, {
   function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-  
+  getCV();
 
   // const findDuplicates = (arr) => {
   //   let sorted_arr = arr.slice().sort(); // You can define the comparing function here. 
