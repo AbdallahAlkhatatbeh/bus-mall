@@ -1,10 +1,11 @@
 #imagesSection{
     display: inline-block;
-  padding: 20px;
+   margin-left: 340px;
+  /* padding: 20px;
     width: 70%;
     height: 150px;
     max-width: 30px;
-    margin: 45px;
+    margin: 45px; */
 }
 #result{
     font-family: cursive;
