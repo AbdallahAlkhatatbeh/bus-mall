@@ -32,7 +32,7 @@ function Images(name) {
     this.name = name;
     this.clicks = 0;
     this.views = 0;
-    this.imagePath = `img/${this.name}.jpg`;
+    this.imagePath = `./img/${this.name}.jpg`;
     Images.all.push(this);
   }
   Images.all =[];
