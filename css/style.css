@@ -31,3 +31,21 @@ canvas{
     margin: 20px;
     float: left;
 }
+body{
+    background-color:plum;
+}
+#leftImage{
+margin-left: 15px;
+border: 12px solid orangered;
+}
+
+#middleImage{
+    margin-left: 15px;
+    border: 12px solid orangered;
+    }
+    
+    #rightImage{
+        margin-left: 15px;
+        border: 12px solid orangered;
+        }
+          
