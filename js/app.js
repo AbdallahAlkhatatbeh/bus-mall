@@ -19,12 +19,12 @@ leftImage.src = `./img/${names[0]}.jpg`;
 leftImage.alt = names[0];
 leftImage.title = names[0];
 
-middleImage.setAttribute('src',`./img/${names[1]}.jpg`);
+middleImage.setAttribute('src',`img/${names[1]}.jpg`);
 middleImage.setAttribute('alt',names[1]);
 middleImage.setAttribute('title',names[1]);
 
 
-rightImage.setAttribute('src',`./img/${names[2]}.jpg`);
+rightImage.setAttribute('src',`img/${names[2]}.jpg`);
 rightImage.setAttribute('alt',names[2]);
 rightImage.setAttribute('title',names[2]);
 
@@ -32,7 +32,7 @@ function Images(name) {
     this.name = name;
     this.clicks = 0;
     this.views = 0;
-    this.imagePath = `./img/${this.name}.jpg`;
+    this.imagePath = `img/${this.name}.jpg`;
     Images.all.push(this);
   }
   Images.all =[];
